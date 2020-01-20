@@ -375,4 +375,8 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
     return _pan;
 }
 
+- (NSArray<PDEditableCellItemAction *> *)actions {
+    return [self.holder copy];
+}
+
 @end
