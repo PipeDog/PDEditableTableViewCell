@@ -22,7 +22,10 @@ UIKIT_EXTERN CGFloat const PDEditableCellItemFillHeight; // If you want the heig
 - (void)panGestureRecognizerStateChangedInEditableCell:(PDEditableCell *)editableCell;
 - (void)panGestureRecognizerStateEndedInEditableCell:(PDEditableCell *)editableCell;
 
+- (void)willBecomeEditingInCell:(PDEditableCell *)editableCell;
 - (void)didBecomeEditingInCell:(PDEditableCell *)editableCell;
+
+- (void)willResignEditingInCell:(PDEditableCell *)editableCell;
 - (void)didResignEditingInCell:(PDEditableCell *)editableCell;
 
 @end

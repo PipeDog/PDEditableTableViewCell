@@ -126,6 +126,10 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
         }];
     };
     
+    if ([self.delegate respondsToSelector:@selector(willBecomeEditingInCell:)]) {
+        [self.delegate willBecomeEditingInCell:self];
+    }
+    
     if (animated) {
         NSTimeInterval duration = (self.itemsWidth / 200.f) * 0.3f;
         [UIView animateWithDuration:duration animations:frameBlock completion:^(BOOL finished) {
@@ -161,6 +165,10 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
             make.right.equalTo(self.contentView.mas_right).offset(-self.edgeInsets.right);
         }];
     };
+    
+    if ([self.delegate respondsToSelector:@selector(willResignEditingInCell:)]) {
+        [self.delegate willResignEditingInCell:self];
+    }
     
     if (animated) {
         NSTimeInterval duration = (self.itemsWidth / 200.f) * 0.3f;
