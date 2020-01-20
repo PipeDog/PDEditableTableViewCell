@@ -308,7 +308,7 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    if ([otherGestureRecognizer isEqual:self.pan]) {
+    if (self.pan == gestureRecognizer || self.pan == otherGestureRecognizer) {
         CGPoint point = [self.pan translationInView:self];
         if ([self _shouldRespondPanGestureWithOffset:point]) {
             return NO;
