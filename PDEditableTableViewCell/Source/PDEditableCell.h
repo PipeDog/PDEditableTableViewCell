@@ -18,15 +18,15 @@ UIKIT_EXTERN CGFloat const PDEditableCellItemFillHeight; // If you want the heig
 
 @protocol PDEditableCellDelegate <NSObject>
 
-- (void)panGestureRecognizerStateBeginInEditableCell:(PDEditableCell *)editableCell;
-- (void)panGestureRecognizerStateChangedInEditableCell:(PDEditableCell *)editableCell;
-- (void)panGestureRecognizerStateEndedInEditableCell:(PDEditableCell *)editableCell;
+- (void)panGestureRecognizerStateBeginInEditableCell:(__kindof PDEditableCell *)editableCell;
+- (void)panGestureRecognizerStateChangedInEditableCell:(__kindof PDEditableCell *)editableCell;
+- (void)panGestureRecognizerStateEndedInEditableCell:(__kindof PDEditableCell *)editableCell;
 
-- (void)willBecomeEditingInCell:(PDEditableCell *)editableCell;
-- (void)didBecomeEditingInCell:(PDEditableCell *)editableCell;
+- (void)willBecomeEditingInCell:(__kindof PDEditableCell *)editableCell;
+- (void)didBecomeEditingInCell:(__kindof PDEditableCell *)editableCell;
 
-- (void)willResignEditingInCell:(PDEditableCell *)editableCell;
-- (void)didResignEditingInCell:(PDEditableCell *)editableCell;
+- (void)willResignEditingInCell:(__kindof PDEditableCell *)editableCell;
+- (void)didResignEditingInCell:(__kindof PDEditableCell *)editableCell;
 
 @end
 
