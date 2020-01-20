@@ -29,7 +29,6 @@
 
 - (void)commitInit {
     self.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.editEnabled = YES;
     self.edgeInsets = UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f);
     self.itemsContainerView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2f];
     

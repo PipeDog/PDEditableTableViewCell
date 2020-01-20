@@ -76,6 +76,7 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 - (void)_commitInit {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     _edgeInsets = UIEdgeInsetsZero;
+    self.editEnabled = YES;
 }
 
 - (void)_createViewHierarchy {
@@ -109,38 +110,74 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 }
 
 - (void)becomeEditingWithAnimated:(BOOL)animated {
+    if (!self.editEnabled) { return; }
     _inEditing = YES;
 
-    void (^block)(void) = ^{
+    void (^frameBlock)(void) = ^{
         [self _setLeft:(self.edgeInsets.left - self.itemsWidth) forView:self.containerView];
+    };
+    
+    void (^layoutBlock)(void) = ^{
+        [self.containerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.edgeInsets.top);
+            make.left.mas_equalTo((self.edgeInsets.left - self.itemsWidth));
+            make.bottom.equalTo(self.contentView.mas_bottom).offset(-self.edgeInsets.bottom);
+            make.right.equalTo(self.contentView.mas_right).offset(-self.edgeInsets.right - self.itemsWidth);
+        }];
     };
     
     if (animated) {
         NSTimeInterval duration = (self.itemsWidth / 200.f) * 0.3f;
-        [UIView animateWithDuration:duration animations:block];
+        [UIView animateWithDuration:duration animations:frameBlock completion:^(BOOL finished) {
+            layoutBlock();
+        }];
     } else {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        block();
+        frameBlock();
         [CATransaction commit];
+                
+        layoutBlock();
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(didBecomeEditingInCell:)]) {
+        [self.delegate didBecomeEditingInCell:self];
     }
 }
 
 - (void)resignEditingWithAnimated:(BOOL)animated {
+    if (!self.editEnabled) { return; }
     _inEditing = NO;
     
-    void (^block)(void) = ^{
+    void (^frameBlock)(void) = ^{
         [self _setLeft:self.edgeInsets.left forView:self.containerView];
+    };
+    
+    void (^layoutBlock)(void) = ^{
+        [self.containerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.edgeInsets.top);
+            make.left.mas_equalTo(self.edgeInsets.left);
+            make.bottom.equalTo(self.contentView.mas_bottom).offset(-self.edgeInsets.bottom);
+            make.right.equalTo(self.contentView.mas_right).offset(-self.edgeInsets.right);
+        }];
     };
     
     if (animated) {
         NSTimeInterval duration = (self.itemsWidth / 200.f) * 0.3f;
-        [UIView animateWithDuration:duration animations:block];
+        [UIView animateWithDuration:duration animations:frameBlock completion:^(BOOL finished) {
+            layoutBlock();
+        }];
     } else {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        block();
+        frameBlock();
         [CATransaction commit];
+        
+        layoutBlock();
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(didResignEditingInCell:)]) {
+        [self.delegate didResignEditingInCell:self];
     }
 }
 
@@ -248,12 +285,12 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 }
 
 - (void)_panGestureRecognizerEnded:(UIPanGestureRecognizer *)sender {
-    CGFloat distance = fabs(self.edgeInsets.left - CGRectGetMinX(self.containerView.frame));
+    CGPoint point = [sender translationInView:self];
     
-    if (distance / self.itemsWidth > 0.3f) {
-        [self becomeEditingWithAnimated:YES];
-    } else {
-        [self resignEditingWithAnimated:YES];
+    if (self.inEditing && point.x > 0) {
+        [self _shouldRespondPanGestureWithOffset:point] ? [self resignEditingWithAnimated:YES] : [self becomeEditingWithAnimated:YES];
+    } else if (!self.inEditing && point.x < 0) {
+        [self _shouldRespondPanGestureWithOffset:point] ? [self becomeEditingWithAnimated:YES] : [self resignEditingWithAnimated:YES];
     }
     
     if ([self.delegate respondsToSelector:@selector(panGestureRecognizerStateEndedInEditableCell:)]) {

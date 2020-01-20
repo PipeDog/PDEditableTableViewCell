@@ -44,6 +44,7 @@
     
     [cell setDataSource:[NSString stringWithFormat:@"\tCurrent row is %zd", indexPath.row]];
     
+    /*
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [cell becomeEditingWithAnimated:YES];
         
@@ -51,6 +52,7 @@
             [cell resignEditingWithAnimated:YES];
         });
     });
+     */
     
     return cell;
 }
@@ -68,6 +70,5 @@
     }
     return _tableView;
 }
-
 
 @end
