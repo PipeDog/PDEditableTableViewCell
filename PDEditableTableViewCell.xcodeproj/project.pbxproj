@@ -1,0 +1,728 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		76C69589F495DAE31DC25E1D /* libPods-PDEditableTableViewCell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5C99163610D5D61732D369 /* libPods-PDEditableTableViewCell.a */; };
+		89F446C985A8969B1DFECDE3 /* libPods-PDEditableTableViewCell-PDEditableTableViewCellUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0303D2694C1927913F9B8A /* libPods-PDEditableTableViewCell-PDEditableTableViewCellUITests.a */; };
+		D102FFF6DDA36CA98D08E80A /* libPods-PDEditableTableViewCellTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 121FF1261006124A8F8B5D61 /* libPods-PDEditableTableViewCellTests.a */; };
+		DD1566EC23D47F5500D7F63C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1566EB23D47F5500D7F63C /* AppDelegate.m */; };
+		DD1566EF23D47F5500D7F63C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1566EE23D47F5500D7F63C /* SceneDelegate.m */; };
+		DD1566F223D47F5500D7F63C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1566F123D47F5500D7F63C /* ViewController.m */; };
+		DD1566F523D47F5500D7F63C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1566F323D47F5500D7F63C /* Main.storyboard */; };
+		DD1566F723D47F5900D7F63C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1566F623D47F5900D7F63C /* Assets.xcassets */; };
+		DD1566FA23D47F5900D7F63C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1566F823D47F5900D7F63C /* LaunchScreen.storyboard */; };
+		DD1566FD23D47F5900D7F63C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1566FC23D47F5900D7F63C /* main.m */; };
+		DD15670723D47F5900D7F63C /* PDEditableTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15670623D47F5900D7F63C /* PDEditableTableViewCellTests.m */; };
+		DD15671223D47F5900D7F63C /* PDEditableTableViewCellUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15671123D47F5900D7F63C /* PDEditableTableViewCellUITests.m */; };
+		DD15672423D4A2FC00D7F63C /* PDEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15672323D4A2FC00D7F63C /* PDEditableCell.m */; };
+		DD15672723D4A8F100D7F63C /* PDDefaultEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15672623D4A8F100D7F63C /* PDDefaultEditableCell.m */; };
+		DD15672A23D5480100D7F63C /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15672823D5480100D7F63C /* UIControl+Block.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD15670323D47F5900D7F63C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD1566DF23D47F5500D7F63C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1566E623D47F5500D7F63C;
+			remoteInfo = PDEditableTableViewCell;
+		};
+		DD15670E23D47F5900D7F63C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD1566DF23D47F5500D7F63C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1566E623D47F5500D7F63C;
+			remoteInfo = PDEditableTableViewCell;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11DCC26253B5A3AE24E96E1D /* Pods-PDEditableTableViewCell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDEditableTableViewCell.release.xcconfig"; path = "Target Support Files/Pods-PDEditableTableViewCell/Pods-PDEditableTableViewCell.release.xcconfig"; sourceTree = "<group>"; };
+		121FF1261006124A8F8B5D61 /* libPods-PDEditableTableViewCellTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDEditableTableViewCellTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17100DEA27A1D1FCEBEC8872 /* Pods-PDEditableTableViewCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDEditableTableViewCell.debug.xcconfig"; path = "Target Support Files/Pods-PDEditableTableViewCell/Pods-PDEditableTableViewCell.debug.xcconfig"; sourceTree = "<group>"; };
+		21D0EC4AC8709622A8C127FF /* Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.debug.xcconfig"; path = "Target Support Files/Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests/Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		53F6B702B66C191454FA4F5C /* Pods-PDEditableTableViewCellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDEditableTableViewCellTests.debug.xcconfig"; path = "Target Support Files/Pods-PDEditableTableViewCellTests/Pods-PDEditableTableViewCellTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64B9EE19C05433FD725C33F1 /* Pods-PDEditableTableViewCellTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDEditableTableViewCellTests.release.xcconfig"; path = "Target Support Files/Pods-PDEditableTableViewCellTests/Pods-PDEditableTableViewCellTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C98825C24ADB0D569729779 /* Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.release.xcconfig"; path = "Target Support Files/Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests/Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D0303D2694C1927913F9B8A /* libPods-PDEditableTableViewCell-PDEditableTableViewCellUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDEditableTableViewCell-PDEditableTableViewCellUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD5C99163610D5D61732D369 /* libPods-PDEditableTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDEditableTableViewCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1566E723D47F5500D7F63C /* PDEditableTableViewCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDEditableTableViewCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1566EA23D47F5500D7F63C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DD1566EB23D47F5500D7F63C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD1566ED23D47F5500D7F63C /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		DD1566EE23D47F5500D7F63C /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		DD1566F023D47F5500D7F63C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DD1566F123D47F5500D7F63C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DD1566F423D47F5500D7F63C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD1566F623D47F5900D7F63C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD1566F923D47F5900D7F63C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD1566FB23D47F5900D7F63C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD1566FC23D47F5900D7F63C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD15670223D47F5900D7F63C /* PDEditableTableViewCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDEditableTableViewCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD15670623D47F5900D7F63C /* PDEditableTableViewCellTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDEditableTableViewCellTests.m; sourceTree = "<group>"; };
+		DD15670823D47F5900D7F63C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD15670D23D47F5900D7F63C /* PDEditableTableViewCellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDEditableTableViewCellUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD15671123D47F5900D7F63C /* PDEditableTableViewCellUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDEditableTableViewCellUITests.m; sourceTree = "<group>"; };
+		DD15671323D47F5900D7F63C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD15672023D47F7C00D7F63C /* PDEditableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDEditableCell.h; sourceTree = "<group>"; };
+		DD15672323D4A2FC00D7F63C /* PDEditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDEditableCell.m; sourceTree = "<group>"; };
+		DD15672523D4A8F100D7F63C /* PDDefaultEditableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDDefaultEditableCell.h; sourceTree = "<group>"; };
+		DD15672623D4A8F100D7F63C /* PDDefaultEditableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDDefaultEditableCell.m; sourceTree = "<group>"; };
+		DD15672823D5480100D7F63C /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
+		DD15672923D5480100D7F63C /* UIControl+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Block.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD1566E423D47F5500D7F63C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76C69589F495DAE31DC25E1D /* libPods-PDEditableTableViewCell.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1566FF23D47F5900D7F63C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D102FFF6DDA36CA98D08E80A /* libPods-PDEditableTableViewCellTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD15670A23D47F5900D7F63C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89F446C985A8969B1DFECDE3 /* libPods-PDEditableTableViewCell-PDEditableTableViewCellUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F793E65A5DF88E1D2ADAEDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD5C99163610D5D61732D369 /* libPods-PDEditableTableViewCell.a */,
+				9D0303D2694C1927913F9B8A /* libPods-PDEditableTableViewCell-PDEditableTableViewCellUITests.a */,
+				121FF1261006124A8F8B5D61 /* libPods-PDEditableTableViewCellTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1DDE32125C9DCE561713D5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17100DEA27A1D1FCEBEC8872 /* Pods-PDEditableTableViewCell.debug.xcconfig */,
+				11DCC26253B5A3AE24E96E1D /* Pods-PDEditableTableViewCell.release.xcconfig */,
+				21D0EC4AC8709622A8C127FF /* Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.debug.xcconfig */,
+				8C98825C24ADB0D569729779 /* Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.release.xcconfig */,
+				53F6B702B66C191454FA4F5C /* Pods-PDEditableTableViewCellTests.debug.xcconfig */,
+				64B9EE19C05433FD725C33F1 /* Pods-PDEditableTableViewCellTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD1566DE23D47F5500D7F63C = {
+			isa = PBXGroup;
+			children = (
+				DD1566E923D47F5500D7F63C /* PDEditableTableViewCell */,
+				DD15670523D47F5900D7F63C /* PDEditableTableViewCellTests */,
+				DD15671023D47F5900D7F63C /* PDEditableTableViewCellUITests */,
+				DD1566E823D47F5500D7F63C /* Products */,
+				D1DDE32125C9DCE561713D5F /* Pods */,
+				3F793E65A5DF88E1D2ADAEDD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD1566E823D47F5500D7F63C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD1566E723D47F5500D7F63C /* PDEditableTableViewCell.app */,
+				DD15670223D47F5900D7F63C /* PDEditableTableViewCellTests.xctest */,
+				DD15670D23D47F5900D7F63C /* PDEditableTableViewCellUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD1566E923D47F5500D7F63C /* PDEditableTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD15671F23D47F6400D7F63C /* Source */,
+				DD1566EA23D47F5500D7F63C /* AppDelegate.h */,
+				DD1566EB23D47F5500D7F63C /* AppDelegate.m */,
+				DD1566ED23D47F5500D7F63C /* SceneDelegate.h */,
+				DD1566EE23D47F5500D7F63C /* SceneDelegate.m */,
+				DD15672523D4A8F100D7F63C /* PDDefaultEditableCell.h */,
+				DD15672623D4A8F100D7F63C /* PDDefaultEditableCell.m */,
+				DD1566F023D47F5500D7F63C /* ViewController.h */,
+				DD1566F123D47F5500D7F63C /* ViewController.m */,
+				DD1566F323D47F5500D7F63C /* Main.storyboard */,
+				DD1566F623D47F5900D7F63C /* Assets.xcassets */,
+				DD1566F823D47F5900D7F63C /* LaunchScreen.storyboard */,
+				DD1566FB23D47F5900D7F63C /* Info.plist */,
+				DD1566FC23D47F5900D7F63C /* main.m */,
+			);
+			path = PDEditableTableViewCell;
+			sourceTree = "<group>";
+		};
+		DD15670523D47F5900D7F63C /* PDEditableTableViewCellTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD15670623D47F5900D7F63C /* PDEditableTableViewCellTests.m */,
+				DD15670823D47F5900D7F63C /* Info.plist */,
+			);
+			path = PDEditableTableViewCellTests;
+			sourceTree = "<group>";
+		};
+		DD15671023D47F5900D7F63C /* PDEditableTableViewCellUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD15671123D47F5900D7F63C /* PDEditableTableViewCellUITests.m */,
+				DD15671323D47F5900D7F63C /* Info.plist */,
+			);
+			path = PDEditableTableViewCellUITests;
+			sourceTree = "<group>";
+		};
+		DD15671F23D47F6400D7F63C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DD15672923D5480100D7F63C /* UIControl+Block.h */,
+				DD15672823D5480100D7F63C /* UIControl+Block.m */,
+				DD15672023D47F7C00D7F63C /* PDEditableCell.h */,
+				DD15672323D4A2FC00D7F63C /* PDEditableCell.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD1566E623D47F5500D7F63C /* PDEditableTableViewCell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD15671623D47F5900D7F63C /* Build configuration list for PBXNativeTarget "PDEditableTableViewCell" */;
+			buildPhases = (
+				C3F666E1E1993591621B8010 /* [CP] Check Pods Manifest.lock */,
+				DD1566E323D47F5500D7F63C /* Sources */,
+				DD1566E423D47F5500D7F63C /* Frameworks */,
+				DD1566E523D47F5500D7F63C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PDEditableTableViewCell;
+			productName = PDEditableTableViewCell;
+			productReference = DD1566E723D47F5500D7F63C /* PDEditableTableViewCell.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD15670123D47F5900D7F63C /* PDEditableTableViewCellTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD15671923D47F5900D7F63C /* Build configuration list for PBXNativeTarget "PDEditableTableViewCellTests" */;
+			buildPhases = (
+				BF03BA8F4D55401649A154F5 /* [CP] Check Pods Manifest.lock */,
+				DD1566FE23D47F5900D7F63C /* Sources */,
+				DD1566FF23D47F5900D7F63C /* Frameworks */,
+				DD15670023D47F5900D7F63C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD15670423D47F5900D7F63C /* PBXTargetDependency */,
+			);
+			name = PDEditableTableViewCellTests;
+			productName = PDEditableTableViewCellTests;
+			productReference = DD15670223D47F5900D7F63C /* PDEditableTableViewCellTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD15670C23D47F5900D7F63C /* PDEditableTableViewCellUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD15671C23D47F5900D7F63C /* Build configuration list for PBXNativeTarget "PDEditableTableViewCellUITests" */;
+			buildPhases = (
+				34A4E88DF90182560589D01F /* [CP] Check Pods Manifest.lock */,
+				DD15670923D47F5900D7F63C /* Sources */,
+				DD15670A23D47F5900D7F63C /* Frameworks */,
+				DD15670B23D47F5900D7F63C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD15670F23D47F5900D7F63C /* PBXTargetDependency */,
+			);
+			name = PDEditableTableViewCellUITests;
+			productName = PDEditableTableViewCellUITests;
+			productReference = DD15670D23D47F5900D7F63C /* PDEditableTableViewCellUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD1566DF23D47F5500D7F63C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = liang;
+				TargetAttributes = {
+					DD1566E623D47F5500D7F63C = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					DD15670123D47F5900D7F63C = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = DD1566E623D47F5500D7F63C;
+					};
+					DD15670C23D47F5900D7F63C = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = DD1566E623D47F5500D7F63C;
+					};
+				};
+			};
+			buildConfigurationList = DD1566E223D47F5500D7F63C /* Build configuration list for PBXProject "PDEditableTableViewCell" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD1566DE23D47F5500D7F63C;
+			productRefGroup = DD1566E823D47F5500D7F63C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD1566E623D47F5500D7F63C /* PDEditableTableViewCell */,
+				DD15670123D47F5900D7F63C /* PDEditableTableViewCellTests */,
+				DD15670C23D47F5900D7F63C /* PDEditableTableViewCellUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD1566E523D47F5500D7F63C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1566FA23D47F5900D7F63C /* LaunchScreen.storyboard in Resources */,
+				DD1566F723D47F5900D7F63C /* Assets.xcassets in Resources */,
+				DD1566F523D47F5500D7F63C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD15670023D47F5900D7F63C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD15670B23D47F5900D7F63C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34A4E88DF90182560589D01F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF03BA8F4D55401649A154F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PDEditableTableViewCellTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3F666E1E1993591621B8010 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PDEditableTableViewCell-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD1566E323D47F5500D7F63C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1566F223D47F5500D7F63C /* ViewController.m in Sources */,
+				DD15672423D4A2FC00D7F63C /* PDEditableCell.m in Sources */,
+				DD1566EC23D47F5500D7F63C /* AppDelegate.m in Sources */,
+				DD1566FD23D47F5900D7F63C /* main.m in Sources */,
+				DD1566EF23D47F5500D7F63C /* SceneDelegate.m in Sources */,
+				DD15672723D4A8F100D7F63C /* PDDefaultEditableCell.m in Sources */,
+				DD15672A23D5480100D7F63C /* UIControl+Block.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1566FE23D47F5900D7F63C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD15670723D47F5900D7F63C /* PDEditableTableViewCellTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD15670923D47F5900D7F63C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD15671223D47F5900D7F63C /* PDEditableTableViewCellUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD15670423D47F5900D7F63C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1566E623D47F5500D7F63C /* PDEditableTableViewCell */;
+			targetProxy = DD15670323D47F5900D7F63C /* PBXContainerItemProxy */;
+		};
+		DD15670F23D47F5900D7F63C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1566E623D47F5500D7F63C /* PDEditableTableViewCell */;
+			targetProxy = DD15670E23D47F5900D7F63C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD1566F323D47F5500D7F63C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD1566F423D47F5500D7F63C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD1566F823D47F5900D7F63C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD1566F923D47F5900D7F63C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD15671423D47F5900D7F63C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DD15671523D47F5900D7F63C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD15671723D47F5900D7F63C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17100DEA27A1D1FCEBEC8872 /* Pods-PDEditableTableViewCell.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PDEditableTableViewCell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Pipedog.PDEditableTableViewCell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD15671823D47F5900D7F63C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11DCC26253B5A3AE24E96E1D /* Pods-PDEditableTableViewCell.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PDEditableTableViewCell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Pipedog.PDEditableTableViewCell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD15671A23D47F5900D7F63C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53F6B702B66C191454FA4F5C /* Pods-PDEditableTableViewCellTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PDEditableTableViewCellTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Pipedog.PDEditableTableViewCellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PDEditableTableViewCell.app/PDEditableTableViewCell";
+			};
+			name = Debug;
+		};
+		DD15671B23D47F5900D7F63C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64B9EE19C05433FD725C33F1 /* Pods-PDEditableTableViewCellTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PDEditableTableViewCellTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Pipedog.PDEditableTableViewCellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PDEditableTableViewCell.app/PDEditableTableViewCell";
+			};
+			name = Release;
+		};
+		DD15671D23D47F5900D7F63C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21D0EC4AC8709622A8C127FF /* Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PDEditableTableViewCellUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Pipedog.PDEditableTableViewCellUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PDEditableTableViewCell;
+			};
+			name = Debug;
+		};
+		DD15671E23D47F5900D7F63C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C98825C24ADB0D569729779 /* Pods-PDEditableTableViewCell-PDEditableTableViewCellUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PDEditableTableViewCellUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Pipedog.PDEditableTableViewCellUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PDEditableTableViewCell;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD1566E223D47F5500D7F63C /* Build configuration list for PBXProject "PDEditableTableViewCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD15671423D47F5900D7F63C /* Debug */,
+				DD15671523D47F5900D7F63C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD15671623D47F5900D7F63C /* Build configuration list for PBXNativeTarget "PDEditableTableViewCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD15671723D47F5900D7F63C /* Debug */,
+				DD15671823D47F5900D7F63C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD15671923D47F5900D7F63C /* Build configuration list for PBXNativeTarget "PDEditableTableViewCellTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD15671A23D47F5900D7F63C /* Debug */,
+				DD15671B23D47F5900D7F63C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD15671C23D47F5900D7F63C /* Build configuration list for PBXNativeTarget "PDEditableTableViewCellUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD15671D23D47F5900D7F63C /* Debug */,
+				DD15671E23D47F5900D7F63C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD1566DF23D47F5500D7F63C /* Project object */;
+}
