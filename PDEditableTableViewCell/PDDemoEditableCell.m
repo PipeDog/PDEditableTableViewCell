@@ -1,21 +1,21 @@
 //
-//  PDDefaultEditableCell.m
+//  PDDemoEditableCell.m
 //  PDEditableTableViewCell
 //
 //  Created by liang on 2020/1/19.
 //  Copyright © 2020 liang. All rights reserved.
 //
 
-#import "PDDefaultEditableCell.h"
+#import "PDDemoEditableCell.h"
 #import <Masonry.h>
 
-@interface PDDefaultEditableCell ()
+@interface PDDemoEditableCell ()
 
 @property (nonatomic, strong) UILabel *contentLabel;
 
 @end
 
-@implementation PDDefaultEditableCell
+@implementation PDDemoEditableCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -31,9 +31,36 @@
     self.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.edgeInsets = UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f);
     self.itemsContainerView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2f];
+
+    PDEditableCellItemLayouter *layouter = [PDEditableCellItemLayouter layouterWithSize:CGSizeMake(40.f, 40.f) edgeInsets:UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f)];
     
-    PDEditableCellItemCreator *creator = [[PDEditableCellItemCreator alloc] init];
-    [creator createEditableCellItemWithBlock:^__kindof PDEditableCellItem * _Nonnull(NSUInteger index) {
+    [self addActions:@[
+        [PDEditableCellItemAction actionWithCreator:[self creatorAtIndex:0] layouter:layouter handler:^{
+            NSLog(@"Log Add here...");
+        }],
+        [PDEditableCellItemAction actionWithCreator:[self creatorAtIndex:1] layouter:layouter handler:^{
+            NSLog(@"Log Delete here...");
+        }],
+        [PDEditableCellItemAction actionWithCreator:[self creatorAtIndex:2] layouter:layouter handler:^{
+            NSLog(@"Log Fix here...");
+        }],
+        // Other actions...
+    ]];
+}
+
+- (void)createViewHierarchy {
+    [self.containerView addSubview:self.contentLabel];
+}
+
+- (void)layoutContentViews {
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.containerView);
+    }];
+}
+
+#pragma mark - Tool Methods
+- (PDEditableCellItemCreator *)creatorAtIndex:(NSInteger)index {
+    return [PDEditableCellItemCreator creatorWithBlock:^__kindof PDEditableCellItem * _Nonnull{
         UIButton *item = [[UIButton alloc] init];
         item.titleLabel.font = [UIFont systemFontOfSize:14];
         if (index == 0) {
@@ -50,33 +77,6 @@
             [item setTitle:@"Fix" forState:UIControlStateNormal];
         }
         return item;
-    }];
-    
-    PDEditableCellItemLayouter *layouter = [[PDEditableCellItemLayouter alloc] init];
-    layouter.size = CGSizeMake(40.f, 40.f);
-    layouter.edgeInsets = UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f);
-    
-    [self addActions:@[
-        [PDEditableCellItemAction actionWithCreator:creator layouter:layouter handler:^{
-            NSLog(@"Log Add here...");
-        }],
-        [PDEditableCellItemAction actionWithCreator:creator layouter:layouter handler:^{
-            NSLog(@"Log Delete here...");
-        }],
-        [PDEditableCellItemAction actionWithCreator:creator layouter:layouter handler:^{
-            NSLog(@"Log Fix here...");
-        }],
-        // Other actions...
-    ]];
-}
-
-- (void)createViewHierarchy {
-    [self.containerView addSubview:self.contentLabel];
-}
-
-- (void)layoutContentViews {
-    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.containerView);
     }];
 }
 

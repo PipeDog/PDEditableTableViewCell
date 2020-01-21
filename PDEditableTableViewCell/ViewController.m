@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "PDDefaultEditableCell.h"
+#import "PDDemoEditableCell.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -37,9 +37,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PDDefaultEditableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuse"];
+    PDDemoEditableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuse"];
     if (!cell) {
-        cell = [[PDDefaultEditableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuse"];
+        cell = [[PDDemoEditableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuse"];
     }
     
     [cell setDataSource:[NSString stringWithFormat:@"\tCurrent row is %zd", indexPath.row]];

@@ -59,14 +59,13 @@ UIKIT_EXTERN CGFloat const PDEditableCellItemFillHeight; // If you want the heig
 
 @interface PDEditableCellItemCreator : NSObject
 
-- (void)createEditableCellItemWithBlock:(__kindof PDEditableCellItem * (^)(NSUInteger index))block;
++ (instancetype)creatorWithBlock:(__kindof PDEditableCellItem * (^)(void))block;
 
 @end
 
 @interface PDEditableCellItemLayouter : NSObject
 
-@property (nonatomic, assign) CGSize size;
-@property (nonatomic, assign) UIEdgeInsets edgeInsets;
++ (instancetype)layouterWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets;
 
 @end
 

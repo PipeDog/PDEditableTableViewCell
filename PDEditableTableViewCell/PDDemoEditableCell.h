@@ -1,5 +1,5 @@
 //
-//  PDDefaultEditableCell.h
+//  PDDemoEditableCell.h
 //  PDEditableTableViewCell
 //
 //  Created by liang on 2020/1/19.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PDDefaultEditableCell : PDEditableCell
+@interface PDDemoEditableCell : PDEditableCell
 
 - (void)setDataSource:(NSString *)dataSource;
 

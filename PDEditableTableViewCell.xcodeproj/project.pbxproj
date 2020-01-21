@@ -20,7 +20,7 @@
 		DD15670723D47F5900D7F63C /* PDEditableTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15670623D47F5900D7F63C /* PDEditableTableViewCellTests.m */; };
 		DD15671223D47F5900D7F63C /* PDEditableTableViewCellUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15671123D47F5900D7F63C /* PDEditableTableViewCellUITests.m */; };
 		DD15672423D4A2FC00D7F63C /* PDEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15672323D4A2FC00D7F63C /* PDEditableCell.m */; };
-		DD15672723D4A8F100D7F63C /* PDDefaultEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15672623D4A8F100D7F63C /* PDDefaultEditableCell.m */; };
+		DD15672723D4A8F100D7F63C /* PDDemoEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15672623D4A8F100D7F63C /* PDDemoEditableCell.m */; };
 		DD15672A23D5480100D7F63C /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = DD15672823D5480100D7F63C /* UIControl+Block.m */; };
 /* End PBXBuildFile section */
 
@@ -71,8 +71,8 @@
 		DD15671323D47F5900D7F63C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD15672023D47F7C00D7F63C /* PDEditableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDEditableCell.h; sourceTree = "<group>"; };
 		DD15672323D4A2FC00D7F63C /* PDEditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDEditableCell.m; sourceTree = "<group>"; };
-		DD15672523D4A8F100D7F63C /* PDDefaultEditableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDDefaultEditableCell.h; sourceTree = "<group>"; };
-		DD15672623D4A8F100D7F63C /* PDDefaultEditableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDDefaultEditableCell.m; sourceTree = "<group>"; };
+		DD15672523D4A8F100D7F63C /* PDDemoEditableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDDemoEditableCell.h; sourceTree = "<group>"; };
+		DD15672623D4A8F100D7F63C /* PDDemoEditableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDDemoEditableCell.m; sourceTree = "<group>"; };
 		DD15672823D5480100D7F63C /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
 		DD15672923D5480100D7F63C /* UIControl+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Block.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,8 +158,8 @@
 				DD1566EB23D47F5500D7F63C /* AppDelegate.m */,
 				DD1566ED23D47F5500D7F63C /* SceneDelegate.h */,
 				DD1566EE23D47F5500D7F63C /* SceneDelegate.m */,
-				DD15672523D4A8F100D7F63C /* PDDefaultEditableCell.h */,
-				DD15672623D4A8F100D7F63C /* PDDefaultEditableCell.m */,
+				DD15672523D4A8F100D7F63C /* PDDemoEditableCell.h */,
+				DD15672623D4A8F100D7F63C /* PDDemoEditableCell.m */,
 				DD1566F023D47F5500D7F63C /* ViewController.h */,
 				DD1566F123D47F5500D7F63C /* ViewController.m */,
 				DD1566F323D47F5500D7F63C /* Main.storyboard */,
@@ -407,7 +407,7 @@
 				DD1566EC23D47F5500D7F63C /* AppDelegate.m in Sources */,
 				DD1566FD23D47F5900D7F63C /* main.m in Sources */,
 				DD1566EF23D47F5500D7F63C /* SceneDelegate.m in Sources */,
-				DD15672723D4A8F100D7F63C /* PDDefaultEditableCell.m in Sources */,
+				DD15672723D4A8F100D7F63C /* PDDemoEditableCell.m in Sources */,
 				DD15672A23D5480100D7F63C /* UIControl+Block.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

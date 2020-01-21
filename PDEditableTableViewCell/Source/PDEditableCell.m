@@ -22,6 +22,9 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 + (instancetype)actionWithCreator:(PDEditableCellItemCreator *)creator
                          layouter:(PDEditableCellItemLayouter *)layouter
                           handler:(void (^)(void))handler {
+    NSAssert(creator, @"The argument `creator` can not be nil!");
+    NSAssert(layouter, @"The argument `layouter` can not be nil!");
+
     PDEditableCellItemAction *action = [[PDEditableCellItemAction alloc] init];
     action->_creator = creator;
     action->_layouter = layouter;
@@ -36,15 +39,27 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
     __kindof PDEditableCellItem * (^_createEditableCellItemBlock)(NSUInteger);
 }
 
-- (void)createEditableCellItemWithBlock:(__kindof PDEditableCellItem * _Nonnull (^)(NSUInteger))block {
-    if (block) {
-        _createEditableCellItemBlock = [block copy];
-    }
++ (instancetype)creatorWithBlock:(__kindof PDEditableCellItem * _Nonnull (^)(void))block {
+    NSAssert(block, @"The argument `block` can not be nil!");
+    PDEditableCellItemCreator *creator = [[PDEditableCellItemCreator alloc] init];
+    creator->_createEditableCellItemBlock = [block copy];
+    return creator;
 }
 
 @end
 
-@implementation PDEditableCellItemLayouter
+@implementation PDEditableCellItemLayouter {
+    @public
+    CGSize _size;
+    UIEdgeInsets _edgeInsets;
+}
+
++ (instancetype)layouterWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets {
+    PDEditableCellItemLayouter *layouter = [[PDEditableCellItemLayouter alloc] init];
+    layouter->_size = size;
+    layouter->_edgeInsets = edgeInsets;
+    return layouter;
+}
 
 @end
 
@@ -193,9 +208,9 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 - (void)_updateItemsLayoutConstraints {
     if (!self.holder.count) { return; }
     
-    PDEditableCellItemAction    *previousAction,    *currentAction;
-    PDEditableCellItemLayouter  *previousLayouter,  *currentLayouter;
-    PDEditableCellItem          *previousItem,      *currentItem; // Be created by creator.
+    PDEditableCellItemAction   *previousAction,   *currentAction;
+    PDEditableCellItemLayouter *previousLayouter, *currentLayouter;
+    PDEditableCellItem         *previousItem,     *currentItem; // Be created by creator.
     
     for (NSUInteger i = 0; i < self.holder.count; i++) {
         currentAction   = self.holder[i];
@@ -207,27 +222,27 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
             !currentAction->_handler ?: currentAction->_handler();
         }];
 
-        self.itemsWidth += (currentLayouter.edgeInsets.left +
-                            currentLayouter.size.width +
-                            currentLayouter.edgeInsets.right);
+        self.itemsWidth += (currentLayouter->_edgeInsets.left +
+                            currentLayouter->_size.width +
+                            currentLayouter->_edgeInsets.right);
         [self.itemsContainerView addSubview:currentItem];
         
         [currentItem mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(currentLayouter.size.width);
+            make.width.mas_equalTo(currentLayouter->_size.width);
 
-            if (currentLayouter.size.height == PDEditableCellItemFillHeight) {
+            if (currentLayouter->_size.height == PDEditableCellItemFillHeight) {
                 make.height.equalTo(self.itemsContainerView.mas_height);
             } else {
-                make.height.mas_equalTo(currentLayouter.size.height);
+                make.height.mas_equalTo(currentLayouter->_size.height);
             }
 
-            make.top.mas_equalTo(currentLayouter.edgeInsets.top);
+            make.top.mas_equalTo(currentLayouter->_edgeInsets.top);
             
             if (previousItem) {
-                CGFloat itemSpacing = currentLayouter.edgeInsets.right + previousLayouter.edgeInsets.left;
+                CGFloat itemSpacing = currentLayouter->_edgeInsets.right + previousLayouter->_edgeInsets.left;
                 make.right.equalTo(previousItem.mas_left).offset(-itemSpacing);
             } else {
-                make.right.equalTo(self.itemsContainerView.mas_right).offset(-currentLayouter.edgeInsets.right);
+                make.right.equalTo(self.itemsContainerView.mas_right).offset(-currentLayouter->_edgeInsets.right);
             }
         }];
 
