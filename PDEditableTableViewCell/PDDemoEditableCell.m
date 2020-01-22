@@ -61,7 +61,7 @@
 #pragma mark - Tool Methods
 - (PDEditableCellItemCreator *)creatorAtIndex:(NSInteger)index {
     return [PDEditableCellItemCreator creatorWithBlock:^__kindof PDEditableCellItem * _Nonnull{
-        UIButton *item = [[UIButton alloc] init];
+        UIButton *item = [UIButton buttonWithType:UIButtonTypeCustom];
         item.titleLabel.font = [UIFont systemFontOfSize:14];
         if (index == 0) {
             // Set item style 0.

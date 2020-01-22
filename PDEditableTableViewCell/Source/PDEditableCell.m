@@ -10,7 +10,11 @@
 #import <Masonry/Masonry.h>
 #import "UIControl+Block.h"
 
+// Public const value.
 CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
+
+// Private const value.
+static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
 
 @implementation PDEditableCellItemAction {
     @public
@@ -41,6 +45,7 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 
 + (instancetype)creatorWithBlock:(__kindof PDEditableCellItem * _Nonnull (^)(void))block {
     NSAssert(block, @"The argument `block` can not be nil!");
+
     PDEditableCellItemCreator *creator = [[PDEditableCellItemCreator alloc] init];
     creator->_createEditableCellItemBlock = [block copy];
     return creator;
@@ -118,6 +123,7 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 #pragma mark - Public Methods
 - (void)addActions:(NSArray<PDEditableCellItemAction *> *)actions {
     NSAssert(!self.inEditing, @"Can not add action when become editing state!");
+
     if (!actions.count) { return; }
     
     [self.holder addObjectsFromArray:actions];
@@ -126,8 +132,9 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
 
 - (void)becomeEditingWithAnimated:(BOOL)animated {
     if (!self.editEnabled) { return; }
-    _inEditing = YES;
+    if (self.inEditing) { return; }
 
+    // Define blocks.
     void (^frameBlock)(void) = ^{
         [self _setLeft:(self.edgeInsets.left - self.itemsWidth) forView:self.containerView];
     };
@@ -141,33 +148,46 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
         }];
     };
     
-    if ([self.delegate respondsToSelector:@selector(willBecomeEditingInCell:)]) {
-        [self.delegate willBecomeEditingInCell:self];
-    }
+    void (^willBecomeEditingBlock)(void) = ^{
+        if ([self.delegate respondsToSelector:@selector(willBecomeEditingInCell:)]) {
+            [self.delegate willBecomeEditingInCell:self];
+        }
+    };
+    
+    void (^didBecomeEditingBlock)(void) = ^{
+        if ([self.delegate respondsToSelector:@selector(didBecomeEditingInCell:)]) {
+            [self.delegate didBecomeEditingInCell:self];
+        }
+    };
+    
+    // Execute actions.
+    self.inEditing = YES;
+    willBecomeEditingBlock();
     
     if (animated) {
-        NSTimeInterval duration = (self.itemsWidth / 200.f) * 0.3f;
+        CGFloat move = fabs(self.edgeInsets.left - CGRectGetMinX(self.containerView.frame));
+        NSTimeInterval duration = ((self.itemsWidth - move) / self.itemsWidth) * kEditableCellItemAnimationDuration;
+        
         [UIView animateWithDuration:duration animations:frameBlock completion:^(BOOL finished) {
             layoutBlock();
+            didBecomeEditingBlock();
         }];
     } else {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
         frameBlock();
         [CATransaction commit];
-                
+        
         layoutBlock();
-    }
-    
-    if ([self.delegate respondsToSelector:@selector(didBecomeEditingInCell:)]) {
-        [self.delegate didBecomeEditingInCell:self];
+        didBecomeEditingBlock();
     }
 }
 
 - (void)resignEditingWithAnimated:(BOOL)animated {
     if (!self.editEnabled) { return; }
-    _inEditing = NO;
+    if (!self.inEditing) { return; }
     
+    // Define blocks.
     void (^frameBlock)(void) = ^{
         [self _setLeft:self.edgeInsets.left forView:self.containerView];
     };
@@ -181,14 +201,29 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
         }];
     };
     
-    if ([self.delegate respondsToSelector:@selector(willResignEditingInCell:)]) {
-        [self.delegate willResignEditingInCell:self];
-    }
+    void (^willResignEditingBlock)(void) = ^{
+        if ([self.delegate respondsToSelector:@selector(willResignEditingInCell:)]) {
+            [self.delegate willResignEditingInCell:self];
+        }
+    };
     
+    void (^didResignEditingBlock)(void) = ^{
+        if ([self.delegate respondsToSelector:@selector(didResignEditingInCell:)]) {
+            [self.delegate didResignEditingInCell:self];
+        }
+    };
+    
+    // Execute actions.
+    self.inEditing = NO;
+    willResignEditingBlock();
+
     if (animated) {
-        NSTimeInterval duration = (self.itemsWidth / 200.f) * 0.3f;
+        CGFloat move = fabs(self.edgeInsets.left - CGRectGetMinX(self.containerView.frame));
+        NSTimeInterval duration = (move / self.itemsWidth) * kEditableCellItemAnimationDuration;
+
         [UIView animateWithDuration:duration animations:frameBlock completion:^(BOOL finished) {
             layoutBlock();
+            didResignEditingBlock();
         }];
     } else {
         [CATransaction begin];
@@ -197,10 +232,7 @@ CGFloat const PDEditableCellItemFillHeight = CGFLOAT_MAX;
         [CATransaction commit];
         
         layoutBlock();
-    }
-    
-    if ([self.delegate respondsToSelector:@selector(didResignEditingInCell:)]) {
-        [self.delegate didResignEditingInCell:self];
+        didResignEditingBlock();
     }
 }
 
