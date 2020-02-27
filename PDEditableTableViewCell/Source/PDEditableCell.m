@@ -132,7 +132,6 @@ static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
 
 - (void)becomeEditingWithAnimated:(BOOL)animated {
     if (!self.editEnabled) { return; }
-    if (self.inEditing) { return; }
 
     // Define blocks.
     void (^frameBlock)(void) = ^{
@@ -185,7 +184,8 @@ static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
 
 - (void)resignEditingWithAnimated:(BOOL)animated {
     if (!self.editEnabled) { return; }
-    if (!self.inEditing) { return; }
+    
+    [self.contentView resignFirstResponder];
     
     // Define blocks.
     void (^frameBlock)(void) = ^{

@@ -61,6 +61,12 @@
     NSLog(@"%s", __func__);
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    for (PDDemoEditableCell *cell in self.tableView.visibleCells) {
+        [cell resignEditingWithAnimated:YES];
+    }
+}
+
 #pragma mark - Getter Methods
 - (UITableView *)tableView {
     if (!_tableView) {
