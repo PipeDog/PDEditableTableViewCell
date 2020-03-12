@@ -285,8 +285,10 @@ static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
 }
 
 - (BOOL)_shouldRespondPanGestureWithOffset:(CGPoint)offset {
-    CGFloat x = fabs(offset.x);
-    return (x >= 10.f) && (fabs(offset.x) > 3 * fabs(offset.y));
+    if (fabs(offset.y) > 0.1f) {
+        return NO;
+    }
+    return fabs(offset.x) >= 20.f;
 }
 
 - (void)_setLeft:(CGFloat)left forView:(UIView *)aView {
@@ -355,7 +357,7 @@ static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    if (self.pan == gestureRecognizer || self.pan == otherGestureRecognizer) {
+    if (self.pan == otherGestureRecognizer) {
         CGPoint point = [self.pan translationInView:self];
         if ([self _shouldRespondPanGestureWithOffset:point]) {
             return NO;
