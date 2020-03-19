@@ -167,7 +167,9 @@ static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
         CGFloat move = fabs(self.edgeInsets.left - CGRectGetMinX(self.containerView.frame));
         NSTimeInterval duration = ((self.itemsWidth - move) / self.itemsWidth) * kEditableCellItemAnimationDuration;
         
-        [UIView animateWithDuration:duration animations:frameBlock completion:^(BOOL finished) {
+        [UIView animateWithDuration:duration animations:^{
+            frameBlock();
+        } completion:^(BOOL finished) {
             layoutBlock();
             didBecomeEditingBlock();
         }];
@@ -221,7 +223,9 @@ static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
         CGFloat move = fabs(self.edgeInsets.left - CGRectGetMinX(self.containerView.frame));
         NSTimeInterval duration = (move / self.itemsWidth) * kEditableCellItemAnimationDuration;
 
-        [UIView animateWithDuration:duration animations:frameBlock completion:^(BOOL finished) {
+        [UIView animateWithDuration:duration animations:^{
+            frameBlock();
+        } completion:^(BOOL finished) {
             layoutBlock();
             didResignEditingBlock();
         }];
@@ -285,10 +289,8 @@ static CGFloat const kEditableCellItemAnimationDuration = 0.3f;
 }
 
 - (BOOL)_shouldRespondPanGestureWithOffset:(CGPoint)offset {
-    if (fabs(offset.y) > 0.1f) {
-        return NO;
-    }
-    return fabs(offset.x) >= 20.f;
+    CGFloat x = fabs(offset.x);
+    return (x >= 10.f) && (fabs(offset.x) > 3 * fabs(offset.y));
 }
 
 - (void)_setLeft:(CGFloat)left forView:(UIView *)aView {
